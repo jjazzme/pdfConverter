@@ -15,20 +15,20 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
     restart: always
 
-#  p74:
-#    build:
-#      context: .
-#      dockerfile: ./p74/Dockerfile
-#    container_name: p74
-#    working_dir: /var/www/html
-#    command: >
-#      sh -c "composer install"
-#    ports:
-#      - "80"
-#    volumes:
-#      - ./src:/var/www/html
-#      - ./nginx.conf:/etc/nginx/nginx.conf
-#    restart: always
+  p74:
+    build:
+      context: .
+      dockerfile: ./p74/Dockerfile
+    container_name: p74
+    working_dir: /var/www/html
+    command: >
+      sh -c "composer install"
+    ports:
+      - "80"
+    volumes:
+      - ./p74/www:/var/www/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    restart: always
 
 
 

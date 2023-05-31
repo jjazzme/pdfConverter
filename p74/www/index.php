@@ -9,22 +9,22 @@ $template->setImageValue('podpisantPodpis', [
     'height' => '200px',
     'ratio' => true
 ]);
+$stream = fopen('php://temp', 'r+');
+$template->save($stream);
+rewind($stream);
+header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+header('Content-Disposition: inline; filename="output.docx"');
+fpassthru($stream);
+fclose($stream);
+exit;
 
-// Сохранение TemplateProcessor во временный файл
-$tempFilePath = tempnam(sys_get_temp_dir(), 'phpword_');
-$template->saveAs($tempFilePath);
-
-// Конвертация временного файла в PDF с помощью LibreOffice
-$outputFile = './output.pdf';
-$libreofficePath = '/usr/bin/libreoffice';
-$command = "$libreofficePath --headless --convert-to pdf --outdir " . escapeshellarg(dirname($outputFile)) . ' ' . escapeshellarg($tempFilePath);
-$output = shell_exec($command);
-
-// Удаление временного файла
-unlink($tempFilePath);
-
-if (file_exists($outputFile)) {
-echo 'Конвертация завершена. PDF файл создан: ' . $outputFile;
-} else {
-echo 'Ошибка при конвертации.';
-}
+//$targetPath = tempnam(sys_get_temp_dir(), 'phpword_');
+//$template->saveAs($targetPath);
+//if (file_exists($targetPath)) {
+//    header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+//    header('Content-Disposition: inline; filename="output.pdf"');
+//    readfile($targetPath);
+//    exit;
+//} else {
+//    echo 'conversion error';
+//}
