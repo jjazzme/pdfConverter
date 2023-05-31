@@ -8,7 +8,7 @@ RUN apk add --no-cache \
     gcc \
     g++ \
     make \
-    && docker-php-ext-install zip\
+    && docker-php-ext-install zip
 
 
 RUN chown www-data:www-data /tmp
