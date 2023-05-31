@@ -8,4 +8,4 @@ RUN apk add --no-cache \
 
 RUN chown www-data:www-data /tmp
 
-RUN nginx php-fpm
+CMD nginx && php-fpm

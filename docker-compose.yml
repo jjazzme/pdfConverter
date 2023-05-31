@@ -8,11 +8,10 @@ services:
       dockerfile: ./p73/Dockerfile
     container_name: p73
     working_dir: /var/www/html
-    command: >
-      sh -c "composer install &&
-             php-fpm"
+    ports:
+      - "8080:80"
     volumes:
-      - ./src:/var/www/html
+      - ./p73/www:/var/www/html
       - ./nginx.conf:/etc/nginx/nginx.conf
     restart: always
 

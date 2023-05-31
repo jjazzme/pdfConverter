@@ -15,3 +15,5 @@ RUN chown www-data:www-data /tmp
 
 # Установка Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+CMD nginx && php-fpm

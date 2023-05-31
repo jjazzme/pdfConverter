@@ -2,7 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['file'])) {
 
-        $regex = '/^doc_to_pdf_conv_.+\..+/';
+        $regex = '/^.+\.pdf$/';
         $timestamp = time() - 300;
 
         $files = scandir(sys_get_temp_dir());
@@ -19,8 +19,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $file = $_FILES['file'];
         if ($file['error'] === UPLOAD_ERR_OK) {
-            $tempFilePath = $file['tmp_name'];
-            echo $tempFilePath;
+            $sourcePath = $file['tmp_name'];
+            $targetPath = $sourcePath . '.pdf';
+            $libreofficePath = '/usr/bin/libreoffice';
+            $command = "$libreofficePath --headless --convert-to pdf --outdir " . escapeshellarg(sys_get_temp_dir()) . ' ' . escapeshellarg($sourcePath);
+            $output = shell_exec($command);
+            unlink($sourcePath);
+
+            if (file_exists($targetPath)) {
+                header('Content-Type: application/pdf');
+                header('Content-Disposition: inline; filename="output.pdf"');
+                readfile($targetPath);
+                exit;
+            } else {
+                echo 'conversion error';
+            }
 
         } else {
             http_response_code(400);
