@@ -1,0 +1,31 @@
+2023-05-31 11:37:42,478 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2023-05-31 11:37:42,482 INFO supervisord started with pid 1
+2023-05-31 11:37:43,490 INFO spawned: 'nginx' with pid 8
+2023-05-31 11:37:43,493 INFO spawned: 'php-fpm' with pid 9
+2023-05-31 11:37:44,597 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-05-31 11:37:44,597 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-05-31 11:45:30,420 WARN received SIGQUIT indicating exit request
+2023-05-31 11:45:30,420 INFO waiting for nginx, php-fpm to die
+2023-05-31 11:45:30,427 INFO stopped: php-fpm (exit status 0)
+2023-05-31 11:45:30,493 INFO stopped: nginx (exit status 0)
+2023-05-31 11:51:18,833 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2023-05-31 11:51:18,838 INFO supervisord started with pid 1
+2023-05-31 11:51:19,842 INFO spawned: 'nginx' with pid 22
+2023-05-31 11:51:19,845 INFO spawned: 'php-fpm' with pid 23
+2023-05-31 11:51:20,927 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-05-31 11:51:20,927 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-05-31 11:52:08,362 INFO reaped unknown pid 46 (exit status 1)
+2023-05-31 11:52:09,364 INFO reaped unknown pid 63 (exit status 0)
+2023-05-31 11:52:09,364 INFO reaped unknown pid 65 (exit status 0)
+2023-05-31 11:52:09,364 INFO reaped unknown pid 67 (exit status 0)
+2023-05-31 11:52:09,364 INFO reaped unknown pid 69 (exit status 0)
+2023-05-31 11:52:09,365 INFO reaped unknown pid 71 (exit status 0)
+2023-05-31 11:52:17,841 INFO reaped unknown pid 100 (exit status 0)
+2023-05-31 11:52:17,841 INFO reaped unknown pid 102 (exit status 0)
+2023-05-31 11:52:17,841 INFO reaped unknown pid 104 (exit status 0)
+2023-05-31 11:52:17,842 INFO reaped unknown pid 106 (exit status 0)
+2023-05-31 11:52:17,842 INFO reaped unknown pid 108 (exit status 0)
+2023-05-31 12:07:04,337 WARN received SIGQUIT indicating exit request
+2023-05-31 12:07:04,337 INFO waiting for nginx, php-fpm to die
+2023-05-31 12:07:04,341 INFO stopped: php-fpm (exit status 0)
+2023-05-31 12:07:04,401 INFO stopped: nginx (exit status 0)

@@ -1,0 +1,4 @@
+vendor/
+composer.lock
+supervisord.log
+supervisord.pid
